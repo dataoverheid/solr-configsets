@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="donl_signals" version="1.0">
+  <types>
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
+    <fieldType name="int" class="solr.IntPointField" docValues="true"/>
+    <fieldType name="date" class="solr.DatePointField" docValues="true"/>
+  </types>
+
+  <fields>
+    <field name="_version_" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="id" type="string" indexed="true" multiValued="false" required="true"
+           stored="true"/>
+
+    <!-- Signal fields -->
+    <field name="signal_type" type="string" indexed="false" stored="true" multiValued="false"/>
+
+    <!-- Response signals -->
+    <field name="handler" type="string" indexed="false" stored="true" multiValued="false"/>
+    <field name="query" type="string" indexed="false" stored="true" multiValued="false"/>
+    <field name="filters" type="string" indexed="false" stored="true" multiValued="true"/>
+    <field name="start" type="int" indexed="false" stored="true" multiValued="false"/>
+    <field name="rows" type="int" indexed="false" stored="true" multiValued="false"/>
+    <field name="result_count" type="int" indexed="false" stored="true" multiValued="false"/>
+    <field name="search_timestamp" type="date" indexed="false" stored="true" multiValued="false"/>
+  </fields>
+
+  <uniqueKey>id</uniqueKey>
+</schema>

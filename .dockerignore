@@ -1,0 +1,26 @@
+# IDE
+/.idea
+
+# VCS
+/.git
+/.gitattributes
+/.gitignore
+/.gitlab-ci.yml
+
+# Docker
+/bin/docker_build.sh
+/.dockerignore
+/Dockerfile
+
+# Testing
+/.editorconfig
+
+# Documentation
+CHANGELOG.md
+CONTRIBUTING.md
+LICENSE.md
+README.md
+
+# Generated files
+/.env
+/.env.dist

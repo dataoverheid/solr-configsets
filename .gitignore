@@ -1,0 +1,12 @@
+# IDE
+/.idea/*
+
+# Generated files
+/.env
+
+# Configsets
+/configsets/*/*
+!/configsets/*/conf
+/configsets/*/conf/*
+!/configsets/*/conf/schema.xml
+!/configsets/*/conf/solrconfig.xml
