@@ -224,7 +224,6 @@
   <copyField source="res_name" dest="text"/>
   <copyField source="res_url" dest="urls"/>
   <copyField source="tags" dest="text"/>
-  <copyField source="text" dest="text"/>
   <copyField source="theme" dest="text"/>
   <copyField source="title" dest="text"/>
   <copyField source="url" dest="urls"/>
