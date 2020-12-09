@@ -131,10 +131,15 @@
     <!-- Data.overheid.nl -->
     <field name="dataset_quality" type="int" indexed="true" stored="true"/>
     <field name="restrictions_statement" type="text" indexed="true" stored="true"/>
-    <field name="duplicate_resources" type="text" indexed="true" stored="false"/>
     <field name="res_link_status" type="boolean" indexed="true" stored="true"/>
     <field name="res_link_status_last_checked" type="date" indexed="true" stored="true"/>
-    <field name="res_is_duplicate_of" type="text" indexed="true" stored="true"/>
+
+    <!--
+    Field preserved for backwards compatibility until all CKAN installations are running
+    ckanext-dataoverheid version 2.4.2 or higher.
+
+    Can be safely deleted once all OTAP environments have up-to-date CKAN installations.
+    -->
     <field name="communities" type="text" indexed="true" stored="true" multiValued="true"/>
 
     <!-- CKAN Package -->
@@ -229,5 +234,4 @@
   <copyField source="url" dest="urls"/>
   <copyField source="urls" dest="text"/>
   <copyField source="vocab_*" dest="text"/>
-  <copyField source="communities" dest="text"/>
 </schema>

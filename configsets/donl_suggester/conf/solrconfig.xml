@@ -104,14 +104,40 @@
 
   <requestHandler name="/analysis/document" class="solr.DocumentAnalysisRequestHandler"
                   startup="lazy"/>
+  
+  <requestHandler name="/build_suggest" class="solr.SearchHandler" startup="lazy">
+    <lst name="defaults">
+      <str name="suggest">true</str>
+      <str name="suggest.dictionary">dataset_suggester</str>
+      <str name="suggest.dictionary">datarequest_suggester</str>
+      <str name="suggest.dictionary">dataservice_suggester</str>
+      <str name="suggest.dictionary">group_suggester</str>
+      <str name="suggest.dictionary">organization_suggester</str>
+      <str name="suggest.dictionary">support_suggester</str>
+      <str name="suggest.dictionary">appliance_suggester</str>
+      <str name="suggest.dictionary">news_suggester</str>
+      <str name="suggest.dictionary">catalog_suggester</str>
+      <str name="suggest.dictionary">community_suggester</str>
+      <str name="suggest.dictionary">theme_suggester</str>
+    </lst>
+    <arr name="components">
+      <str>suggest_component</str>
+    </arr>
+  </requestHandler>
 
   <requestHandler name="/suggest" class="solr.SearchHandler" startup="lazy">
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">dataset_suggester</str>
       <str name="suggest.dictionary">datarequest_suggester</str>
+      <str name="suggest.dictionary">dataservice_suggester</str>
       <str name="suggest.dictionary">group_suggester</str>
       <str name="suggest.dictionary">organization_suggester</str>
+      <str name="suggest.dictionary">support_suggester</str>
+      <str name="suggest.dictionary">appliance_suggester</str>
+      <str name="suggest.dictionary">news_suggester</str>
+      <str name="suggest.dictionary">catalog_suggester</str>
+      <str name="suggest.dictionary">community_suggester</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -125,6 +151,7 @@
       <str name="suggest.dictionary">dataset_suggester</str>
       <str name="suggest.dictionary">organization_suggester</str>
       <str name="suggest.dictionary">theme_suggester</str>
+      <!-- TODO: More suggesters for directly filtering datasets? -->
       <str name="suggest.cfq">dataset</str>
       <str name="suggest.count">5</str>
     </lst>
@@ -136,9 +163,8 @@
   <requestHandler name="/suggest_datarequest" class="solr.SearchHandler" startup="lazy">
     <lst name="defaults">
       <str name="suggest">true</str>
-      <str name="suggest.dictionary">datarequest_title_suggester</str>
-      <str name="suggest.dictionary">authority_suggester</str>
-      <str name="suggest.dictionary">theme_suggester</str>
+      <str name="suggest.dictionary">datarequest_suggester</str>
+      <!-- TODO: More suggesters for directly filtering datarequests? -->
       <str name="suggest.cfq">datarequest</str>
       <str name="suggest.count">5</str>
     </lst>
@@ -150,7 +176,8 @@
   <requestHandler name="/suggest_group" class="solr.SearchHandler" startup="lazy">
     <lst name="defaults">
       <str name="suggest">true</str>
-      <str name="suggest.dictionary">group_name_suggester</str>
+      <str name="suggest.dictionary">group_suggester</str>
+      <!-- TODO: More suggesters for directly filtering groups? -->
       <str name="suggest.cfq">group</str>
       <str name="suggest.count">5</str>
     </lst>
@@ -159,10 +186,25 @@
     </arr>
   </requestHandler>
 
-  <requestHandler name="/suggest_authority" class="solr.SearchHandler" startup="lazy">
+  <requestHandler name="/suggest_organization" class="solr.SearchHandler" startup="lazy">
     <lst name="defaults">
       <str name="suggest">true</str>
-      <str name="suggest.dictionary">authority_suggester</str>
+      <str name="suggest.dictionary">organization_suggester</str>
+      <!-- TODO: More suggesters for directly filtering organizations? -->
+      <str name="suggest.cfq">organization</str>
+      <str name="suggest.count">5</str>
+    </lst>
+    <arr name="components">
+      <str>suggest_component</str>
+    </arr>
+  </requestHandler>
+
+ <requestHandler name="/suggest_dataservice" class="solr.SearchHandler" startup="lazy">
+    <lst name="defaults">
+      <str name="suggest">true</str>
+      <str name="suggest.dictionary">dataservice_suggester</str>
+      <!-- TODO: More suggesters for directly filtering dataservices? -->
+      <str name="suggest.cfq">dataservice</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -174,6 +216,60 @@
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">community_suggester</str>
+      <!-- TODO: More suggesters for directly filtering communities? -->
+      <str name="suggest.cfq">community</str>
+      <str name="suggest.count">5</str>
+    </lst>
+    <arr name="components">
+      <str>suggest_component</str>
+    </arr>
+  </requestHandler>
+
+  <requestHandler name="/suggest_support" class="solr.SearchHandler" startup="lazy">
+    <lst name="defaults">
+      <str name="suggest">true</str>
+      <str name="suggest.dictionary">support_suggester</str>
+      <!-- TODO: More suggesters for directly filtering supports? -->
+      <str name="suggest.cfq">support</str>
+      <str name="suggest.count">5</str>
+    </lst>
+    <arr name="components">
+      <str>suggest_component</str>
+    </arr>
+  </requestHandler>
+
+  <requestHandler name="/suggest_appliance" class="solr.SearchHandler" startup="lazy">
+    <lst name="defaults">
+      <str name="suggest">true</str>
+      <str name="suggest.dictionary">appliance_suggester</str>
+      <!-- TODO: More suggesters for directly filtering appliances? -->
+      <str name="suggest.cfq">appliance</str>
+      <str name="suggest.count">5</str>
+    </lst>
+    <arr name="components">
+      <str>suggest_component</str>
+    </arr>
+  </requestHandler>
+
+  <requestHandler name="/suggest_news" class="solr.SearchHandler" startup="lazy">
+    <lst name="defaults">
+      <str name="suggest">true</str>
+      <str name="suggest.dictionary">news_suggester</str>
+      <!-- TODO: More suggesters for directly filtering news? -->
+      <str name="suggest.cfq">news</str>
+      <str name="suggest.count">5</str>
+    </lst>
+    <arr name="components">
+      <str>suggest_component</str>
+    </arr>
+  </requestHandler>
+
+  <requestHandler name="/suggest_catalog" class="solr.SearchHandler" startup="lazy">
+    <lst name="defaults">
+      <str name="suggest">true</str>
+      <str name="suggest.dictionary">catalog_suggester</str>
+      <!-- TODO: More suggesters for directly filtering catalogs? -->
+      <str name="suggest.cfq">catalog</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -192,7 +288,7 @@
       <str name="weightField">weight</str>
       <str name="contextField">context</str>
       <str name="suggestAnalyzerFieldType">text_suggest</str>
-      <str name="buildOnStartup">true</str>
+      <str name="buildOnStartup">false</str>
     </lst>
     <lst name="suggester">
       <str name="name">datarequest_suggester</str>
@@ -204,7 +300,7 @@
       <str name="weightField">weight</str>
       <str name="contextField">context</str>
       <str name="suggestAnalyzerFieldType">text_suggest</str>
-      <str name="buildOnStartup">true</str>
+      <str name="buildOnStartup">false</str>
     </lst>
     <lst name="suggester">
       <str name="name">group_suggester</str>
@@ -216,7 +312,7 @@
       <str name="weightField">weight</str>
       <str name="contextField">context</str>
       <str name="suggestAnalyzerFieldType">text_suggest</str>
-      <str name="buildOnStartup">true</str>
+      <str name="buildOnStartup">false</str>
     </lst>
     <lst name="suggester">
       <str name="name">organization_suggester</str>
@@ -228,7 +324,19 @@
       <str name="weightField">weight</str>
       <str name="contextField">context</str>
       <str name="suggestAnalyzerFieldType">text_suggest</str>
-      <str name="buildOnStartup">true</str>
+      <str name="buildOnStartup">false</str>
+    </lst>
+    <lst name="suggester">
+      <str name="name">dataservice_suggester</str>
+      <str name="lookupImpl">AnalyzingInfixLookupFactory</str>
+      <str name="dictionaryImpl">DocumentDictionaryFactory</str>
+      <str name="indexPath">dataservice_suggester</str>
+      <str name="field">dataservice</str>
+      <str name="payloadField">payload</str>
+      <str name="weightField">weight</str>
+      <str name="contextField">context</str>
+      <str name="suggestAnalyzerFieldType">text_suggest</str>
+      <str name="buildOnStartup">false</str>
     </lst>
     <lst name="suggester">
       <str name="name">theme_suggester</str>
@@ -240,7 +348,7 @@
       <str name="weightField">weight</str>
       <str name="contextField">context</str>
       <str name="suggestAnalyzerFieldType">text_suggest</str>
-      <str name="buildOnStartup">true</str>
+      <str name="buildOnStartup">false</str>
     </lst>
     <lst name="suggester">
       <str name="name">community_suggester</str>
@@ -252,7 +360,55 @@
       <str name="weightField">weight</str>
       <str name="contextField">context</str>
       <str name="suggestAnalyzerFieldType">text_suggest</str>
-      <str name="buildOnStartup">true</str>
+      <str name="buildOnStartup">false</str>
+    </lst>
+    <lst name="suggester">
+      <str name="name">support_suggester</str>
+      <str name="lookupImpl">AnalyzingInfixLookupFactory</str>
+      <str name="dictionaryImpl">DocumentDictionaryFactory</str>
+      <str name="indexPath">support_suggester</str>
+      <str name="field">support</str>
+      <str name="payloadField">payload</str>
+      <str name="weightField">weight</str>
+      <str name="contextField">context</str>
+      <str name="suggestAnalyzerFieldType">text_suggest</str>
+      <str name="buildOnStartup">false</str>
+    </lst>
+    <lst name="suggester">
+      <str name="name">appliance_suggester</str>
+      <str name="lookupImpl">AnalyzingInfixLookupFactory</str>
+      <str name="dictionaryImpl">DocumentDictionaryFactory</str>
+      <str name="indexPath">appliance_suggester</str>
+      <str name="field">appliance</str>
+      <str name="payloadField">payload</str>
+      <str name="weightField">weight</str>
+      <str name="contextField">context</str>
+      <str name="suggestAnalyzerFieldType">text_suggest</str>
+      <str name="buildOnStartup">false</str>
+    </lst>
+    <lst name="suggester">
+      <str name="name">news_suggester</str>
+      <str name="lookupImpl">AnalyzingInfixLookupFactory</str>
+      <str name="dictionaryImpl">DocumentDictionaryFactory</str>
+      <str name="indexPath">news_suggester</str>
+      <str name="field">news</str>
+      <str name="payloadField">payload</str>
+      <str name="weightField">weight</str>
+      <str name="contextField">context</str>
+      <str name="suggestAnalyzerFieldType">text_suggest</str>
+      <str name="buildOnStartup">false</str>
+    </lst>
+    <lst name="suggester">
+      <str name="name">catalog_suggester</str>
+      <str name="lookupImpl">AnalyzingInfixLookupFactory</str>
+      <str name="dictionaryImpl">DocumentDictionaryFactory</str>
+      <str name="indexPath">catalog_suggester</str>
+      <str name="field">catalog</str>
+      <str name="payloadField">payload</str>
+      <str name="weightField">weight</str>
+      <str name="contextField">context</str>
+      <str name="suggestAnalyzerFieldType">text_suggest</str>
+      <str name="buildOnStartup">false</str>
     </lst>
   </searchComponent>
 

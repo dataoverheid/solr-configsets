@@ -76,7 +76,8 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en</str>
+      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en</str>
+      <str name="bq">relation_community:[* TO *]^1.1</str>
       <str name="defType">edismax</str>
     </lst>
 
@@ -108,7 +109,9 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en</str>
+      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en</str>
+      <str name="bq">classification:[* TO *]^1.1</str>
+      <str name="bq">relation_community:[* TO *]^1.1</str>
       <str name="defType">edismax</str>
       <str name="fl">title, description, authority, keyword, theme, format, sys_created,
         sys_modified, sys_id,
@@ -157,12 +160,66 @@
     </arr>
   </requestHandler>
 
+  <requestHandler name="/select_dataservice" class="solr.SearchHandler">
+    <lst name="defaults">
+      <str name="q.op">AND</str>
+      <str name="echoParams">explicit</str>
+      <str name="df">text</str>
+      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en</str>
+      <str name="defType">edismax</str>
+      <str name="fl">sys_id, sys_name, sys_language, sys_type, sys_created, sys_modified, sys_uri,
+        title,
+        description, kind
+      </str>
+    </lst>
+
+    <lst name="appends">
+      <str name="fq">sys_type:dataservice</str>
+      <str name="facet">true</str>
+      <str name="facet.limit">50</str>
+      <str name="facet.mincount">1</str>
+      <str name="facet.field">facet_status</str>
+      <str name="facet.field">facet_access_rights</str>
+      <str name="facet.field">facet_authority</str>
+      <str name="facet.field">facet_theme</str>
+      <str name="facet.field">facet_classification</str>
+      <str name="facet.field">facet_group</str>
+      <str name="facet.field">facet_license</str>
+      <str name="facet.field">facet_keyword</str>
+      <str name="facet.field">facet_sys_language</str>
+      <str name="facet.field">facet_format</str>
+      <str name="facet.field">facet_frequency</str>
+      <str name="facet.field">facet_catalog</str>
+      <str name="facet.field">facet_community</str>
+      <str name="f.facet_authority.facet.limit">-1</str>
+      <str name="f.facet_authority.facet.sort">count</str>
+      <str name="f.facet_theme.facet.limit">-1</str>
+      <str name="f.facet_theme.facet.sort">count</str>
+      <str name="f.facet_frequency.facet.limit">-1</str>
+      <str name="f.facet_frequency.facet.sort">count</str>
+
+      <str name="facet.interval">{!key=facet_recent}sys_modified</str>
+      <str name="f.sys_modified.facet.interval.set">[NOW-1MONTH, NOW+1DAY]</str>
+      <str name="f.sys_modified.facet.interval.set">[NOW-1YEAR, NOW-1MONTH]</str>
+      <str name="f.sys_modified.facet.interval.set">[*, NOW-1YEAR]</str>
+
+      <str name="spellcheck">true</str>
+      <str name="spellcheck.dictionary">spellchecker</str>
+      <str name="spellcheck.count">1</str>
+      <str name="spellcheck.collate">true</str>
+    </lst>
+
+    <arr name="last-components">
+      <str>spellcheck_component</str>
+    </arr>
+  </requestHandler>
+
   <requestHandler name="/select_organization" class="solr.SearchHandler">
     <lst name="defaults">
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en</str>
+      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en</str>
       <str name="defType">edismax</str>
       <str name="fl">sys_id, sys_name, sys_language, sys_type, sys_created, sys_modified, sys_uri,
         title,
@@ -199,7 +256,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en</str>
+      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en</str>
       <str name="defType">edismax</str>
       <str name="fl">sys_id, sys_name, sys_language, sys_type, sys_created, sys_modified, sys_uri,
         title, description
@@ -235,7 +292,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en</str>
+      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en</str>
       <str name="defType">edismax</str>
       <str name="fl">sys_id, sys_name, sys_language, sys_type, sys_created, sys_modified, sys_uri,
         title, description, status, theme, phase
@@ -279,7 +336,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en</str>
+      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en</str>
       <str name="defType">edismax</str>
       <str name="fl">sys_id, sys_name, sys_language, sys_type, sys_created, sys_modified, sys_uri,
         title, description, authority, theme, appliance_type
@@ -321,7 +378,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en</str>
+      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en</str>
       <str name="defType">edismax</str>
       <str name="fl">sys_id, sys_name, sys_language, sys_type, sys_created, sys_modified, sys_uri,
         title, description
@@ -356,7 +413,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en</str>
+      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en</str>
       <str name="defType">edismax</str>
       <str name="fl">sys_id, sys_name, sys_language, sys_type, sys_created, sys_modified, sys_uri,
         title, description
@@ -391,7 +448,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en</str>
+      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en</str>
       <str name="defType">edismax</str>
       <str name="fl">sys_id, sys_name, sys_language, sys_type, sys_created, sys_modified, sys_uri,
         title, description
@@ -426,7 +483,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en</str>
+      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en</str>
       <str name="defType">edismax</str>
       <str name="fl">sys_id, sys_name, sys_language, sys_type, sys_created, sys_modified, sys_uri,
         title, description

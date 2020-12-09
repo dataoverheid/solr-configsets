@@ -26,6 +26,7 @@ ln -s /path/to/solr-configsets/configsets/donl_dataset /path/to/solr/configsets/
 ln -s /path/to/solr-configsets/configsets/donl_search /path/to/solr/configsets/donl_search
 ln -s /path/to/solr-configsets/configsets/donl_suggester /path/to/solr/configsets/donl_suggester
 ln -s /path/to/solr-configsets/configsets/donl_signals /path/to/solr/configsets/donl_signals
+ln -s /path/to/solr-configsets/configsets/donl_signals_aggregated /path/to/solr/configsets/donl_signals_aggregated
 ```
 
 ### SolrCloud
@@ -58,4 +59,5 @@ During core/collection creation, you now have the option to select one of the be
 - `donl_dataset`
 - `donl_search`
 - `donl_signals`
+- `donl_signals_aggregated`
 - `donl_suggester`

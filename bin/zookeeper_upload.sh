@@ -12,7 +12,13 @@ if [ ! -e /.dockerenv ]; then
 fi
 
 
-declare -a CONFIGSETS=("donl_dataset" "donl_search" "donl_suggester" "donl_signals")
+declare -a CONFIGSETS=(
+    "donl_dataset"
+    "donl_search"
+    "donl_suggester"
+    "donl_signals"
+    "donl_signals_aggregated"
+)
 echo "Uploading configsets to Apache Zookeeper"
 
 for CONFIGSET in "${CONFIGSETS[@]}";
