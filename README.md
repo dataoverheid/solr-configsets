@@ -59,5 +59,5 @@ During core/collection creation, you now have the option to select one of the be
 - `donl_dataset`
 - `donl_search`
 - `donl_signals`
-- `donl_signals_aggretated`
+- `donl_signals_aggregated`
 - `donl_suggester`

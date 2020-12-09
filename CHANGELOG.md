@@ -1,6 +1,11 @@
 # Changelog
 
+## 1.4.1 (2020/12)
+
+- Temporarily reintroduced `communities` field in the `donl_dataset` configset for CKAN installations not yet running version `2.4.2` or higher.
+
 ## 1.4.0 (2020/12)
+
 - Add new request handler for dataservices: `select_dataservice`.
 - Add new suggester for dataservices: `suggest_dataservice`.
 - Add new label field for which synonyms are managed.
