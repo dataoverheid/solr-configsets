@@ -12,7 +12,13 @@ if [ ! -e /.dockerenv ]; then
 fi
 
 
-declare -a CONFIGSETS=("donl_dataset" "donl_search" "donl_suggester" "donl_signals")
+declare -a CONFIGSETS=(
+    "donl_dataset"
+    "donl_search"
+    "donl_suggester"
+    "donl_signals"
+    "donl_signals_aggregated"
+)
 echo "Generating configset metadata"
 
 for CONFIGSET in "${CONFIGSETS[@]}";
@@ -23,8 +29,12 @@ do
         rm -r "${METADATA_PATH}"
     fi
 
+    if [ -f "${METADATA_PATH}.txt" ]; then
+        rm -r "${METADATA_PATH}.txt"
+    fi
+
     echo "> Adding metadata to configset ${CONFIGSET}"
-    cat > "${METADATA_PATH}" <<EOF
+    cat > "${METADATA_PATH}.txt" <<EOF
 # Configset: ${CONFIGSET}
 # Generated on: $(date)
 # Source: https://github.com/dataoverheid/solr-configsets

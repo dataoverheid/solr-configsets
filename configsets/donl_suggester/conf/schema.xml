@@ -23,11 +23,16 @@
     <field name="payload" type="string" indexed="true" stored="true" multiValued="false"/>
 
     <!-- Entity suggestions -->
+    <field name="appliance" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
+    <field name="catalog" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
     <field name="community" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
     <field name="datarequest" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
+    <field name="dataservice" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
     <field name="dataset" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
     <field name="group" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
+    <field name="news" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
     <field name="organization" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
+    <field name="support" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
 
     <!-- Theme suggestions -->
     <field name="theme" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
@@ -35,6 +40,19 @@
     <!-- Context only fields -->
     <field name="type" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="language" type="string" indexed="true" stored="true" multiValued="true"/>
+    
+    <!--
+    This field indicates in which context a suggestion is in.
+    For example:
+
+    Organization suggestions can be given in the context of datasets. Only organizations
+    that have datasets are suggested. These suggestions have a context-dependent weight.
+    The weight in this example is equal to the number of datasets an organization owns.
+
+    An organization that is also in e.g. a datarequest has a separate suggestion with
+    its own datarequest-dependent weight.
+    -->
+    <field name="in_context_of" type="string" indexed="true" stored="true" multiValued="false"/>
 
     <field name="context" type="string" indexed="true" stored="true" multiValued="true"/>
   </fields>
@@ -42,7 +60,7 @@
   <!-- Copy to context field -->
   <copyField source="type" dest="context"/>
   <copyField source="language" dest="context"/>
-  <copyField source="community" dest="context"/>
+  <copyField source="in_context_of" dest="context"/>
 
   <uniqueKey>id</uniqueKey>
 </schema>

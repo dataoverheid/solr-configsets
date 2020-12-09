@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="donl_signals_aggregated" version="1.0">
+  <types>
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
+    <fieldType name="int" class="solr.IntPointField" docValues="true"/>
+  </types>
+
+  <fields>
+    <field name="_version_" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="id" type="string" indexed="true" multiValued="false" required="true"
+           stored="true"/>
+
+    <field name="subject" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="handler" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="count" type="int" indexed="true" stored="true" multiValued="false"/>
+    <field name="type" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="timeframe" type="string" indexed="true" stored="true" multiValued="false"/>
+  </fields>
+
+  <uniqueKey>id</uniqueKey>
+</schema>

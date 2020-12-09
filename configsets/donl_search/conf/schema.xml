@@ -87,6 +87,8 @@
         <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
                 generateNumberParts="1"/>
         <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ManagedStopFilterFactory" managed="dutch"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="Dutch"/>
         <filter class="solr.ASCIIFoldingFilterFactory"/>
       </analyzer>
     </fieldType>
@@ -107,6 +109,8 @@
         <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
                 generateNumberParts="1"/>
         <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ManagedStopFilterFactory" managed="english"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="English"/>
         <filter class="solr.ASCIIFoldingFilterFactory"/>
       </analyzer>
     </fieldType>
@@ -117,6 +121,50 @@
         <tokenizer class="solr.StandardTokenizerFactory"/>
         <filter class="solr.ManagedStopFilterFactory" managed="dutch"/>
         <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+      </analyzer>
+    </fieldType>
+
+    <fieldType name="label_nl" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.KeywordTokenizerFactory"/>
+        <filter class="solr.ManagedSynonymGraphFilterFactory" managed="label_nl"/>
+        <filter class="solr.FlattenGraphFilterFactory"/>
+        <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
+                generateNumberParts="1"/>
+        <filter class="solr.FlattenGraphFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ManagedStopFilterFactory" managed="dutch"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="Dutch"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
+                generateNumberParts="1"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+      </analyzer>
+    </fieldType>
+
+    <fieldType name="label_en" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.KeywordTokenizerFactory"/>
+        <filter class="solr.ManagedSynonymGraphFilterFactory" managed="label_en"/>
+        <filter class="solr.FlattenGraphFilterFactory"/>
+        <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
+                generateNumberParts="1"/>
+        <filter class="solr.FlattenGraphFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
+                generateNumberParts="1"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ManagedStopFilterFactory" managed="english"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="English"/>
         <filter class="solr.ASCIIFoldingFilterFactory"/>
       </analyzer>
     </fieldType>
@@ -197,10 +245,14 @@
     <field name="authority_type" type="string" indexed="true" stored="true" multiValued="false"/>
 
     <!-- URI fields -->
-    <field name="uri_synonym_nl" type="uri_label_nl" indexed="true" stored="true"
+    <field name="uri_synonym_nl" type="uri_label_nl" indexed="true" stored="false"
            multiValued="true"/>
-    <field name="uri_synonym_en" type="uri_label_en" indexed="true" stored="true"
+    <field name="uri_synonym_en" type="uri_label_en" indexed="true" stored="false"
            multiValued="true"/>
+
+    <!-- Label fields -->
+    <field name="label_nl" type="label_nl" indexed="true" stored="false" multiValued="true"/>
+    <field name="label_en" type="label_en" indexed="true" stored="false" multiValued="true"/>
 
     <!-- Spellcheck field -->
     <field name="spellcheck" type="spellcheck" indexed="true" stored="true" multiValued="true"/>
@@ -307,6 +359,10 @@
   <copyField source="language" dest="uri_synonym_en"/>
   <copyField source="relation_organization" dest="uri_synonym_nl"/>
   <copyField source="relation_organization" dest="uri_synonym_en"/>
+
+  <!-- Copy to label field -->
+  <copyField source="classification" dest="label_nl"/>
+  <copyField source="classification" dest="label_en"/>
 
   <!-- Copy to search field -->
   <copyField source="title" dest="text"/>
