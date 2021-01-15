@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.7.0 (2021/01)
+
+- Remove `suggest.cfq` parameter from `/suggest` handlers, because it is not possible to define multiple `suggest.cfq`.
+
+## 1.6.0 (2021/01)
+
+- Make sure `suggest.cfq` is not overwritten by user queries to `/suggest` handlers. The `suggest.cfq` parameter is now in `appends` in each `/suggest` handler.
+
+## 1.5.0 (2021/01)
+
+- Add filter for `/suggest` so that it only returns suggestions without any context.
+
+## 1.4.2 (2021/01)
+
+- Remove catalog suggestions from `/suggest` suggester.
+
 ## 1.4.1 (2020/12)
 
 - Temporarily reintroduced `communities` field in the `donl_dataset` configset for CKAN installations not yet running version `2.4.2` or higher.

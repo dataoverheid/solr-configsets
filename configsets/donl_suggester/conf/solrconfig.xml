@@ -136,7 +136,6 @@
       <str name="suggest.dictionary">support_suggester</str>
       <str name="suggest.dictionary">appliance_suggester</str>
       <str name="suggest.dictionary">news_suggester</str>
-      <str name="suggest.dictionary">catalog_suggester</str>
       <str name="suggest.dictionary">community_suggester</str>
       <str name="suggest.count">5</str>
     </lst>
@@ -151,8 +150,6 @@
       <str name="suggest.dictionary">dataset_suggester</str>
       <str name="suggest.dictionary">organization_suggester</str>
       <str name="suggest.dictionary">theme_suggester</str>
-      <!-- TODO: More suggesters for directly filtering datasets? -->
-      <str name="suggest.cfq">dataset</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -164,8 +161,6 @@
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">datarequest_suggester</str>
-      <!-- TODO: More suggesters for directly filtering datarequests? -->
-      <str name="suggest.cfq">datarequest</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -177,8 +172,6 @@
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">group_suggester</str>
-      <!-- TODO: More suggesters for directly filtering groups? -->
-      <str name="suggest.cfq">group</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -190,8 +183,6 @@
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">organization_suggester</str>
-      <!-- TODO: More suggesters for directly filtering organizations? -->
-      <str name="suggest.cfq">organization</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -203,8 +194,6 @@
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">dataservice_suggester</str>
-      <!-- TODO: More suggesters for directly filtering dataservices? -->
-      <str name="suggest.cfq">dataservice</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -216,8 +205,6 @@
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">community_suggester</str>
-      <!-- TODO: More suggesters for directly filtering communities? -->
-      <str name="suggest.cfq">community</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -229,8 +216,6 @@
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">support_suggester</str>
-      <!-- TODO: More suggesters for directly filtering supports? -->
-      <str name="suggest.cfq">support</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -242,8 +227,6 @@
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">appliance_suggester</str>
-      <!-- TODO: More suggesters for directly filtering appliances? -->
-      <str name="suggest.cfq">appliance</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -255,8 +238,6 @@
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">news_suggester</str>
-      <!-- TODO: More suggesters for directly filtering news? -->
-      <str name="suggest.cfq">news</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -268,8 +249,6 @@
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">catalog_suggester</str>
-      <!-- TODO: More suggesters for directly filtering catalogs? -->
-      <str name="suggest.cfq">catalog</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
