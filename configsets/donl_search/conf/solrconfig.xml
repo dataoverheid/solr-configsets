@@ -127,6 +127,7 @@
       <str name="facet.field">facet_status</str>
       <str name="facet.field">facet_access_rights</str>
       <str name="facet.field">facet_authority</str>
+      <str name="facet.field">facet_authority_kind</str>
       <str name="facet.field">facet_theme</str>
       <str name="facet.field">facet_classification</str>
       <str name="facet.field">facet_group</str>
@@ -181,6 +182,7 @@
       <str name="facet.field">facet_status</str>
       <str name="facet.field">facet_access_rights</str>
       <str name="facet.field">facet_authority</str>
+      <str name="facet.field">facet_authority_kind</str>
       <str name="facet.field">facet_theme</str>
       <str name="facet.field">facet_classification</str>
       <str name="facet.field">facet_group</str>
@@ -308,6 +310,7 @@
       <str name="facet.field">facet_status</str>
       <str name="facet.field">facet_phase</str>
       <str name="facet.field">facet_authority</str>
+      <str name="facet.field">facet_authority_kind</str>
       <str name="facet.field">facet_theme</str>
       <str name="facet.field">facet_format</str>
       <str name="f.facet_authority.facet.limit">-1</str>

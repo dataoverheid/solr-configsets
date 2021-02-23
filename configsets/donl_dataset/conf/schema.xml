@@ -71,6 +71,8 @@
     <field name="contact_point_website" type="string" indexed="true" stored="true"
            multiValued="false"/>
     <field name="access_rights" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="access_rights_reason" type="string" indexed="true" stored="true"
+           multiValued="false"/>
     <field name="conforms_to" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="related_resource" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="source" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -104,9 +106,12 @@
     <field name="high_value" type="boolean" indexed="true" stored="true" multiValued="false"/>
     <field name="referentie_data" type="boolean" indexed="true" stored="true" multiValued="false"/>
     <field name="basis_register" type="boolean" indexed="true" stored="true" multiValued="false"/>
-    <field name="national_coverage" type="boolean" indexed="true" stored="true" multiValued="false"/>
-    <field name="sector_registrations" type="boolean" indexed="true" stored="true" multiValued="false"/>
-    <field name="local_registrations" type="boolean" indexed="true" stored="true" multiValued="false"/>
+    <field name="national_coverage" type="boolean" indexed="true" stored="true"
+           multiValued="false"/>
+    <field name="sector_registrations" type="boolean" indexed="true" stored="true"
+           multiValued="false"/>
+    <field name="local_registrations" type="boolean" indexed="true" stored="true"
+           multiValued="false"/>
 
     <!-- DCAT Distribution -->
     <field name="res_metadata_language" type="string" indexed="true" stored="true"
@@ -129,6 +134,7 @@
            multiValued="true"/>
 
     <!-- Data.overheid.nl -->
+    <field name="last_modified" type="date" indexed="true" stored="true"/>
     <field name="dataset_quality" type="int" indexed="true" stored="true"/>
     <field name="restrictions_statement" type="text" indexed="true" stored="true"/>
     <field name="res_link_status" type="boolean" indexed="true" stored="true"/>
