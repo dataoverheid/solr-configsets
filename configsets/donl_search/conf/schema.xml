@@ -190,6 +190,7 @@
     <field name="description" type="text" indexed="true" stored="true" multiValued="false"/>
     <field name="theme" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="authority" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="authority_kind" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="format" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="url" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="keyword" type="text" indexed="true" stored="true" multiValued="true"/>
@@ -220,6 +221,8 @@
     <field name="relation_datarequest" type="string" indexed="true" stored="true"
            multiValued="true"/>
     <field name="relation_datamodel" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="relation_dataservice" type="string" indexed="true" stored="true"
+           multiValued="true"/>
     <field name="relation_appliance" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="relation_organization" type="string" indexed="true" stored="true"
            multiValued="true"/>
@@ -265,6 +268,8 @@
     <field name="facet_authority" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="facet_authority_type" type="string" indexed="true" stored="true"
            multiValued="true"/>
+    <field name="facet_authority_kind" type="string" indexed="true" stored="true"
+           multiValued="true"/>
     <field name="facet_access_rights" type="string" indexed="true" stored="true"
            multiValued="false"/>
     <field name="facet_frequency" type="string" indexed="true" stored="true" multiValued="false"/>
@@ -297,6 +302,7 @@
   <!-- Copy to facet fields -->
   <copyField source="authority" dest="facet_authority"/>
   <copyField source="authority_type" dest="facet_authority_type"/>
+  <copyField source="authority_kind" dest="facet_authority_kind"/>
   <copyField source="access_rights" dest="facet_access_rights"/>
   <copyField source="frequency" dest="facet_frequency"/>
   <copyField source="license" dest="facet_license"/>
@@ -321,6 +327,7 @@
   <copyField source="relation_group" dest="relation"/>
   <copyField source="relation_datarequest" dest="relation"/>
   <copyField source="relation_datamodel" dest="relation"/>
+  <copyField source="relation_dataservice" dest="relation"/>
   <copyField source="relation_appliance" dest="relation"/>
   <copyField source="relation_organization" dest="relation"/>
   <copyField source="relation_catalog" dest="relation"/>

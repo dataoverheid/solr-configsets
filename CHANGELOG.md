@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.8.1 (20201/02)
+
+- Introduced a new field `last_modified` in the `donl_dataset` configset. This field matches the new field introduced in `ckanext-dataoverheid@2.5.2`.
+
+## 1.8.0 (2021/02)
+
+- All suggest requestHandlers will now provide an additional suggestion dictionary named `did_you_mean`. This dictionary will contain suggestions based on common government acronyms with their fully written name as the payload.
+
+## 1.7.3 (2021/02)
+
+- Add `authority_kind` field to the index.
+- Add `facet_authority_kind` to Add to dataset, datarequest and dataservice select handlers.
+
+## 1.7.2 (2021/02)
+
+- Support for the `access_rights_reason` field introduced in `ckanext-dataoverheid@2.5.0`.
+- Add missing relation field for dataservices `relation_dataservice` in the `donl_search` schema.
+
+## 1.7.1 (2021/01)
+
+- Add new `relation_community` field to suggester schema.
+
 ## 1.7.0 (2021/01)
 
 - Remove `suggest.cfq` parameter from `/suggest` handlers, because it is not possible to define multiple `suggest.cfq`.

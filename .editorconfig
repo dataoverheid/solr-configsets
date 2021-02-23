@@ -15,5 +15,8 @@ indent_size = 2
 [*.yml]
 indent_size = 2
 
+[configsets/*/conf/lang/*.txt]
+indent_style = tab
+
 [VERSION]
 insert_final_newline = false

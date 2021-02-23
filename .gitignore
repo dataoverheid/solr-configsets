@@ -10,3 +10,4 @@
 /configsets/*/conf/*
 !/configsets/*/conf/schema.xml
 !/configsets/*/conf/solrconfig.xml
+!/configsets/*/conf/lang

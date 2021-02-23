@@ -40,6 +40,7 @@
     <!-- Context only fields -->
     <field name="type" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="language" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="relation_community" type="string" indexed="true" stored="true" multiValued="true"/>
     
     <!--
     This field indicates in which context a suggestion is in.
@@ -60,6 +61,7 @@
   <!-- Copy to context field -->
   <copyField source="type" dest="context"/>
   <copyField source="language" dest="context"/>
+  <copyField source="relation_community" dest="context"/>
   <copyField source="in_context_of" dest="context"/>
 
   <uniqueKey>id</uniqueKey>
