@@ -1,6 +1,10 @@
 # Changelog
 
-## 1.8.1 (20201/02)
+## 1.8.2 (2021/02)
+
+- Delete context field from `did_you_mean` suggester.
+
+## 1.8.1 (2021/02)
 
 - Introduced a new field `last_modified` in the `donl_dataset` configset. This field matches the new field introduced in `ckanext-dataoverheid@2.5.2`.
 

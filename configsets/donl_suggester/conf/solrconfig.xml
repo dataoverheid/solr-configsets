@@ -270,10 +270,9 @@
   <searchComponent name="suggest_component" class="solr.SuggestComponent">
     <lst name="suggester">
       <str name="name">did_you_mean</str>
-      <str name="lookupImpl">AnalyzingInfixLookupFactory</str>
+      <str name="lookupImpl">AnalyzingLookupFactory</str>
       <str name="dictionaryImpl">FileDictionaryFactory</str>
       <str name="sourceLocation">lang/abbreviations.txt</str>
-      <str name="contextField">context</str>
       <str name="suggestAnalyzerFieldType">text_suggest</str>
       <str name="buildOnStartup">true</str>
     </lst>
