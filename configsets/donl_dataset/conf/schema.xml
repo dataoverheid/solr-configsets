@@ -113,6 +113,8 @@
     <field name="local_registrations" type="boolean" indexed="true" stored="true"
            multiValued="false"/>
 
+    <field name="linked_concepts" type="string" indexed="true" stored="true" multiValued="true"/>
+
     <!-- DCAT Distribution -->
     <field name="res_metadata_language" type="string" indexed="true" stored="true"
            multiValued="true"/>

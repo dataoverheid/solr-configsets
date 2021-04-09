@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.0.0 (2021/03)
+
+- Introduce a new search collection: donl_concepts. This collection contains concepts from external sources.
+
+## 1.10.0 (2021/03)
+
+- Explicitly defined the `fl` field when using the `select` requestHandler. The `fl` is defined as the aggregation of the `fl` fields of all the various `select_*` requestHandlers.
+- Introduced a new field `user_defined_synonyms` for the `donl_search` configset. This multivalued textfield will contain ... user defined synonyms. Additionally, the field is added to the `qf` of all `select` requestHandlers.
+
+## 1.9.0 (2021/03)
+
+- Introduced a new field in the `donl_dataset` configset called `linked_concepts`. This field matches the new dataset property introduced in `ckanext-dataoverheid@2.6.0`.
+- Introduced a new field in the `donl_search` configset called `asset_logo`. This field can contain a relative reference to a graphic which acts as the logo of the document in question.
+- Introduced a new field in the `donl_search` configset called `asset_authority_logo`. This field can contain a relative reference to a graphic which acts as the logo of the authority of the document.
+
 ## 1.8.2 (2021/02)
 
 - Delete context field from `did_you_mean` suggester.
