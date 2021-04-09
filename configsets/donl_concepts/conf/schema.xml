@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="donl_concepts" version="1.0">
+  <types>
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
+    <fieldType name="text_nl" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
+                generateNumberParts="1"
+                catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1"/>
+        <filter class="solr.FlattenGraphFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ManagedStopFilterFactory" managed="dutch"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="Dutch"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
+                generateNumberParts="1"
+                catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1"/>
+        <filter class="solr.FlattenGraphFilterFactory"/>
+        <filter class="solr.ManagedStopFilterFactory" managed="dutch"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="Dutch"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+      </analyzer>
+    </fieldType>
+    <fieldType name="text_en" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
+                generateNumberParts="1"
+                catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1"/>
+        <filter class="solr.FlattenGraphFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ManagedStopFilterFactory" managed="english"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="English"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
+                generateNumberParts="1"
+                catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1"/>
+        <filter class="solr.FlattenGraphFilterFactory"/>
+        <filter class="solr.ManagedStopFilterFactory" managed="english"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="English"/>
+      </analyzer>
+    </fieldType>
+    <fieldType name="hierarchy" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.PathHierarchyTokenizerFactory" delimiter="|"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.KeywordTokenizerFactory"/>
+      </analyzer>
+    </fieldType>
+    <fieldType name="spellcheck_nl" class="solr.TextField" positionIncrementGap="100"
+        multiValued="true">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.ManagedStopFilterFactory" managed="dutch"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+      </analyzer>
+    </fieldType>
+    <fieldType name="spellcheck_en" class="solr.TextField" positionIncrementGap="100"
+        multiValued="true">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.ManagedStopFilterFactory" managed="english"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+      </analyzer>
+    </fieldType>
+  </types>
+
+  <fields>
+    <field name="_version_" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="id" type="string" indexed="true" multiValued="false" required="true"
+           stored="true"/>
+    
+    <field name="preferred_term_nl" type="text_nl" indexed="true" stored="true" multiValued="false"/>
+    <field name="preferred_term_en" type="text_en" indexed="true" stored="true" multiValued="false"/>
+    <field name="alternative_terms_nl" type="text_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="alternative_terms_en" type="text_en" indexed="true" stored="true" multiValued="true"/>
+    <field name="description_nl" type="text_nl" indexed="true" stored="true" multiValued="false"/>
+    <field name="description_en" type="text_en" indexed="true" stored="true" multiValued="false"/>
+    <field name="broader_terms" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="narrower_terms" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="related_terms" type="string" indexed="true" stored="true" multiValued="true"/>
+
+    <field name="community" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="source_name" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="source_url" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="hierarchy" type="string" indexed="true" stored="true" multiValued="false"/>
+
+    <!-- Spellcheck fields -->
+    <field name="spellcheck_nl" type="spellcheck_nl" indexed="true" stored="true" multiValued="true"/>
+    <field name="spellcheck_en" type="spellcheck_en" indexed="true" stored="true" multiValued="true"/>
+
+    <field name="facet_community" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="facet_source_name" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="facet_hierarchy" type="hierarchy" indexed="true" stored="true" multiValued="false"/>
+  </fields>
+
+  <uniqueKey>id</uniqueKey>
+
+  <copyField source="preferred_term_nl" dest="spellcheck_nl"/>
+  <copyField source="alternative_terms_nl" dest="spellcheck_nl"/>
+  <copyField source="description_nl" dest="spellcheck_nl"/>
+  <copyField source="preferred_term_en" dest="spellcheck_en"/>
+  <copyField source="alternative_terms_en" dest="spellcheck_en"/>
+  <copyField source="description_en" dest="spellcheck_en"/>
+
+  <copyField source="community" dest="facet_community"/>
+  <copyField source="source_name" dest="facet_source_name"/>
+  <copyField source="hierarchy" dest="facet_hierarchy"/>
+</schema>

@@ -211,6 +211,14 @@
     <field name="legal" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="kind" type="string" indexed="true" stored="true" multiValued="false"/>
 
+    <field name="user_defined_synonyms" type="text" indexed="true" stored="true"
+           multiValued="true"/>
+
+    <!-- Asset references -->
+    <field name="asset_logo" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="asset_authority_logo" type="string" indexed="false" stored="true"
+           multiValued="false"/>
+
     <!-- Ghost field as copy field -->
     <field name="language" type="string" indexed="false" stored="false" multiValued="true"/>
 
