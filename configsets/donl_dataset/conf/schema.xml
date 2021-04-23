@@ -139,6 +139,7 @@
     <field name="last_modified" type="date" indexed="true" stored="true"/>
     <field name="dataset_quality" type="int" indexed="true" stored="true"/>
     <field name="restrictions_statement" type="text" indexed="true" stored="true"/>
+    <field name="donlsync_checksum" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="res_link_status" type="boolean" indexed="true" stored="true"/>
     <field name="res_link_status_last_checked" type="date" indexed="true" stored="true"/>
 
