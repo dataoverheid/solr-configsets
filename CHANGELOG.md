@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.2 (2021/04)
+
+- Removed the `sys_type` "catalog" value from the facet `facet_sys_type` when using the `select` requestHandler for the `donl_search` configset.
+
+## 2.0.1 (2021/04)
+
+- Support the `donlsync_checksum` field in the `donl_dataset` configset introduced in `ckanext-dataoverheid@2.6.1`.
+
 ## 2.0.0 (2021/03)
 
 - Introduce a new search collection: donl_concepts. This collection contains concepts from external sources.

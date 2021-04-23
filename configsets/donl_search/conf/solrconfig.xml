@@ -95,6 +95,7 @@
       <str name="facet.field">facet_community</str>
 
       <str name="facet.interval">{!key=facet_recent}sys_modified</str>
+      <str name="f.facet_sys_type.facet.excludeTerms">catalog</str>
       <str name="f.sys_modified.facet.interval.set">[NOW-1MONTH, NOW+1DAY]</str>
       <str name="f.sys_modified.facet.interval.set">[NOW-1YEAR, NOW-1MONTH]</str>
       <str name="f.sys_modified.facet.interval.set">[*, NOW-1YEAR]</str>
