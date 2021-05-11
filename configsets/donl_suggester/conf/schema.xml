@@ -29,6 +29,7 @@
     <field name="datarequest" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
     <field name="dataservice" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
     <field name="dataset" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
+    <field name="user_defined_synonym" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
     <field name="group" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
     <field name="news" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
     <field name="organization" type="text_suggest" indexed="true" stored="true" multiValued="true"/>

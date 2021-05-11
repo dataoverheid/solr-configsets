@@ -304,8 +304,8 @@
 
   <uniqueKey>sys_id</uniqueKey>
 
-  <copyField source="authority" dest="relation_organization"/>
-  <copyField source="publisher" dest="relation_organization"/>
+  <copyField source="authority" dest="relation"/>
+  <copyField source="publisher" dest="relation"/>
 
   <!-- Copy to facet fields -->
   <copyField source="authority" dest="facet_authority"/>

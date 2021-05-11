@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.1.2 (2021/05)
+
+- Copy `authority` and `publisher` fields directly to `relation`, instead of indirectly via `relation_organization` field. This may have caused problems when partially updating an object with `authority` and/or `publisher`.
+
+## 2.1.1 (2021/04)
+
+- Make sure the new `did_you_mean` suggester is built when a request to `/build_suggest` is done.
+
+## 2.1.0 (2021/04)
+
+- Changed implementation of `did_you_mean` suggester. This suggester now uses the index instead of a file on disk.
+
 ## 2.0.2 (2021/04)
 
 - Removed the `sys_type` "catalog" value from the facet `facet_sys_type` when using the `select` requestHandler for the `donl_search` configset.

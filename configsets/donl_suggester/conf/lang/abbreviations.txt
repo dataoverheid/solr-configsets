@@ -1,5 +1,0 @@
-BZK	1.0	Ministerie van Binnenlandse Zaken en Koninkrijksrelaties
-SZW	1.0	Ministerie van Sociale Zaken en Werkgelegenheid
-CBS	1.0	Centraal Bureau voor de Statistiek
-NGR	1.0	NationaalGeoregister.nl
-RIVM	1.0	Rijksinstituut voor Volksgezondheid en Milieu
