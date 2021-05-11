@@ -108,6 +108,7 @@
   <requestHandler name="/build_suggest" class="solr.SearchHandler" startup="lazy">
     <lst name="defaults">
       <str name="suggest">true</str>
+      <str name="suggest.dictionary">did_you_mean</str>
       <str name="suggest.dictionary">dataset_suggester</str>
       <str name="suggest.dictionary">datarequest_suggester</str>
       <str name="suggest.dictionary">dataservice_suggester</str>
@@ -270,11 +271,15 @@
   <searchComponent name="suggest_component" class="solr.SuggestComponent">
     <lst name="suggester">
       <str name="name">did_you_mean</str>
-      <str name="lookupImpl">AnalyzingLookupFactory</str>
-      <str name="dictionaryImpl">FileDictionaryFactory</str>
-      <str name="sourceLocation">lang/abbreviations.txt</str>
+      <str name="lookupImpl">AnalyzingInfixLookupFactory</str>
+      <str name="dictionaryImpl">DocumentDictionaryFactory</str>
+      <str name="indexPath">did_you_mean_suggester</str>
+      <str name="field">user_defined_synonym</str>
+      <str name="payloadField">payload</str>
+      <str name="weightField">weight</str>
+      <str name="contextField">context</str>
       <str name="suggestAnalyzerFieldType">text_suggest</str>
-      <str name="buildOnStartup">true</str>
+      <str name="buildOnStartup">false</str>
     </lst>
     <lst name="suggester">
       <str name="name">dataset_suggester</str>
