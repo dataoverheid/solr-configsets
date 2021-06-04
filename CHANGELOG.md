@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0 (2021/05)
+
+- Add index for dataschema content.
+
 ## 2.1.2 (2021/05)
 
 - Copy `authority` and `publisher` fields directly to `relation`, instead of indirectly via `relation_organization` field. This may have caused problems when partially updating an object with `authority` and/or `publisher`.

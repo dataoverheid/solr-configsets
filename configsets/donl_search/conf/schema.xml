@@ -265,6 +265,12 @@
     <field name="label_nl" type="label_nl" indexed="true" stored="false" multiValued="true"/>
     <field name="label_en" type="label_en" indexed="true" stored="false" multiValued="true"/>
 
+    <!-- Dataschema fields -->
+    <field name="dataschema_name" type="text" indexed="true" stored="true" multiValued="true"/>
+    <field name="dataschema_code" type="text" indexed="true" stored="true" multiValued="true"/>
+    <field name="dataschema_type" type="text" indexed="true" stored="true" multiValued="true"/>
+    <field name="dataschema_description" type="text" indexed="true" stored="true" multiValued="true"/>
+
     <!-- Spellcheck field -->
     <field name="spellcheck" type="spellcheck" indexed="true" stored="true" multiValued="true"/>
 
@@ -388,6 +394,10 @@
   <copyField source="contact_point" dest="text"/>
   <copyField source="classification" dest="text"/>
   <copyField source="phase" dest="text"/>
+  <copyField source="dataschema_name" dest="text"/>
+  <copyField source="dataschema_code" dest="text"/>
+  <copyField source="dataschema_type" dest="text"/>
+  <copyField source="dataschema_description" dest="text"/>
 
   <!-- Copy  to spellcheck field -->
   <copyField source="title" dest="spellcheck"/>
