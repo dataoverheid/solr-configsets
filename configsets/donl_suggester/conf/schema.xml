@@ -38,6 +38,9 @@
     <!-- Theme suggestions -->
     <field name="theme" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
 
+    <!-- Location suggestions -->
+    <field name="location" type="text_suggest" indexed="true" stored="true" multiValued="true"/>
+
     <!-- Context only fields -->
     <field name="type" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="language" type="string" indexed="true" stored="true" multiValued="true"/>

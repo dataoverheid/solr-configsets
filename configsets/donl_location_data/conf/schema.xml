@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="donl_location_data" version="1.0">
+  <types>
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
+    <fieldType name="text_nl" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
+                generateNumberParts="1"
+                catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1"/>
+        <filter class="solr.FlattenGraphFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="Dutch"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+      </analyzer>
+    </fieldType>
+    <fieldType name="text_en" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1"
+                generateNumberParts="1"
+                catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1"/>
+        <filter class="solr.FlattenGraphFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="English"/>
+        <filter class="solr.ASCIIFoldingFilterFactory"/>
+      </analyzer>
+    </fieldType>
+  </types>
+
+  <fields>
+    <field name="_version_" type="string" indexed="true" stored="true" multiValued="false"/>
+
+    <field name="sys_uri" type="string" indexed="true" stored="true" multiValued="false"
+           required="true"/>
+    <field name="label_nl" type="text_nl" indexed="true" stored="true" multiValued="false"/>
+    <field name="label_en" type="text_en" indexed="true" stored="true" multiValued="false"/>
+    <field name="geometry" type="string" indexed="false" stored="true" multiValued="true"/>
+  </fields>
+
+  <uniqueKey>sys_uri</uniqueKey>
+</schema>

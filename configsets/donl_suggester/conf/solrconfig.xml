@@ -104,7 +104,7 @@
 
   <requestHandler name="/analysis/document" class="solr.DocumentAnalysisRequestHandler"
                   startup="lazy"/>
-  
+
   <requestHandler name="/build_suggest" class="solr.SearchHandler" startup="lazy">
     <lst name="defaults">
       <str name="suggest">true</str>
@@ -120,6 +120,7 @@
       <str name="suggest.dictionary">catalog_suggester</str>
       <str name="suggest.dictionary">community_suggester</str>
       <str name="suggest.dictionary">theme_suggester</str>
+      <str name="suggest.dictionary">location_suggester</str>
     </lst>
     <arr name="components">
       <str>suggest_component</str>
@@ -153,6 +154,7 @@
       <str name="suggest.dictionary">dataset_suggester</str>
       <str name="suggest.dictionary">organization_suggester</str>
       <str name="suggest.dictionary">theme_suggester</str>
+      <str name="suggest.dictionary">location_suggester</str>
       <str name="suggest.count">5</str>
     </lst>
     <arr name="components">
@@ -196,7 +198,7 @@
     </arr>
   </requestHandler>
 
- <requestHandler name="/suggest_dataservice" class="solr.SearchHandler" startup="lazy">
+  <requestHandler name="/suggest_dataservice" class="solr.SearchHandler" startup="lazy">
     <lst name="defaults">
       <str name="suggest">true</str>
       <str name="suggest.dictionary">did_you_mean</str>
@@ -347,6 +349,18 @@
       <str name="dictionaryImpl">DocumentDictionaryFactory</str>
       <str name="indexPath">theme_suggester</str>
       <str name="field">theme</str>
+      <str name="payloadField">payload</str>
+      <str name="weightField">weight</str>
+      <str name="contextField">context</str>
+      <str name="suggestAnalyzerFieldType">text_suggest</str>
+      <str name="buildOnStartup">false</str>
+    </lst>
+    <lst name="suggester">
+      <str name="name">location_suggester</str>
+      <str name="lookupImpl">AnalyzingInfixLookupFactory</str>
+      <str name="dictionaryImpl">DocumentDictionaryFactory</str>
+      <str name="indexPath">location_suggester</str>
+      <str name="field">location</str>
       <str name="payloadField">payload</str>
       <str name="weightField">weight</str>
       <str name="contextField">context</str>

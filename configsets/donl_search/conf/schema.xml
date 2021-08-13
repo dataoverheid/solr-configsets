@@ -191,7 +191,6 @@
     <field name="theme" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="authority" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="authority_kind" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="format" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="url" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="keyword" type="text" indexed="true" stored="true" multiValued="true"/>
     <field name="contact_point" type="text" indexed="true" stored="true" multiValued="true"/>
@@ -210,6 +209,12 @@
     <field name="checksum" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="legal" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="kind" type="string" indexed="true" stored="true" multiValued="false"/>
+    
+    <!-- Sort fields -->
+    <field name="popularity" type="int" indexed="false" stored="false" docValues="true" multiValued="false"/>
+
+    <field name="location_uri" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="location_label" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <field name="user_defined_synonyms" type="text" indexed="true" stored="true"
            multiValued="true"/>
@@ -221,6 +226,10 @@
 
     <!-- Ghost field as copy field -->
     <field name="language" type="string" indexed="false" stored="false" multiValued="true"/>
+
+    <!-- Distribution fields -->
+    <field name="format" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="distribution_type" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <!-- Relation fields -->
     <field name="relation_dataset" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -254,6 +263,9 @@
     <!-- Appliance fields -->
     <field name="appliance_type" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="authority_type" type="string" indexed="true" stored="true" multiValued="false"/>
+
+    <!-- Support fields -->
+    <field name="page_type" type="string" indexed="false" stored="true" multiValued="false"/>
 
     <!-- URI fields -->
     <field name="uri_synonym_nl" type="uri_label_nl" indexed="true" stored="false"
@@ -306,6 +318,7 @@
     <field name="facet_phase" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="facet_appliance_type" type="string" indexed="true" stored="true"
            multiValued="false"/>
+    <field name="facet_page_type" type="string" indexed="true" stored="true" multiValued="false"/>
   </fields>
 
   <uniqueKey>sys_id</uniqueKey>
@@ -334,6 +347,7 @@
   <copyField source="kind" dest="facet_kind"/>
   <copyField source="phase" dest="facet_phase"/>
   <copyField source="appliance_type" dest="facet_appliance_type"/>
+  <copyField source="page_type" dest="facet_page_type"/>
 
   <!-- Catch all relation field -->
   <copyField source="relation_dataset" dest="relation"/>
@@ -354,6 +368,8 @@
   <copyField source="relation_statistic" dest="relation"/>
 
   <!-- Copy to URI synonym field -->
+  <copyField source="location_uri" dest="uri_synonym_nl"/>
+  <copyField source="location_uri" dest="uri_synonym_en"/>
   <copyField source="theme" dest="uri_synonym_nl"/>
   <copyField source="theme" dest="uri_synonym_en"/>
   <copyField source="authority" dest="uri_synonym_nl"/>
@@ -380,6 +396,8 @@
   <copyField source="language" dest="uri_synonym_en"/>
   <copyField source="relation_organization" dest="uri_synonym_nl"/>
   <copyField source="relation_organization" dest="uri_synonym_en"/>
+  <copyField source="distribution_type" dest="uri_synonym_nl"/>
+  <copyField source="distribution_type" dest="uri_synonym_en"/>
 
   <!-- Copy to label field -->
   <copyField source="classification" dest="label_nl"/>
@@ -394,6 +412,7 @@
   <copyField source="contact_point" dest="text"/>
   <copyField source="classification" dest="text"/>
   <copyField source="phase" dest="text"/>
+  <copyField source="location_label" dest="text"/>
   <copyField source="dataschema_name" dest="text"/>
   <copyField source="dataschema_code" dest="text"/>
   <copyField source="dataschema_type" dest="text"/>
