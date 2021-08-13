@@ -8,19 +8,16 @@ PROJECT_ROOT="$(realpath "$(dirname "$0")/../")"
 cd "${PROJECT_ROOT}"
 
 if [ ! -e /.dockerenv ]; then
-    source .env
+    source ./.env
 fi
 
 
-declare -a CONFIGSETS=(
-    "donl_dataset"
-    "donl_search"
-    "donl_suggester"
-    "donl_signals"
-    "donl_signals_aggregated"
-)
+source ./configsets.sh
+
+
 echo "Generating configset metadata"
 
+# shellcheck disable=SC2153
 for CONFIGSET in "${CONFIGSETS[@]}";
 do
     METADATA_PATH="./configsets/${CONFIGSET}/conf/metadata"

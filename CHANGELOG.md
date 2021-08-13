@@ -1,5 +1,42 @@
 # Changelog
 
+## 2.5.0 (2021/08)
+
+- Introduce a new field called `popularity`, which can be used for sorting.
+
+## 2.4.1 (2021/08)
+
+- Change field type of `location_label` from `text` to `string`.
+
+## 2.4.0 (2021/07)
+
+- Introduced an additional suggester named `location_suggester` that is capable of providing filter suggestions based on location metadata similar to how the `theme_suggester` provides theme filter suggestions.
+
+## 2.3.1 (2021/07)
+
+- Removed old `id` field from the `donl_location_data` configset and made the `geometry` field multivalued.
+
+## 2.3.0 (2021/07)
+
+- Introduced a new configset called `donl_geometry`. This configset is capable of storing the geometry associated with an organization. This data can then be used to expand the documents in `donl_search` which are associated with that organization.
+- Small optimizations to the scripts in `./bin/` to ensure all scripts have access to the complete list of available configsets.
+
+## 2.2.3 (2021/06)
+
+- Add `page_type` field to `donl_search` (for "support" documents).
+- Add `facet_page_type` field to `donl_search` for a facet on `page_type`.
+- Add `page_type` to `fl` in `/select` and `/select_support` request handlers.
+- Add facet on `facet_page_type` for the `/select_support` request handler.
+
+## 2.2.2 (2021/06)
+
+- Delete unused `res\_*` fields in `donl_dataset`.
+
+## 2.2.1 (2021/06)
+
+- Add `disitribution_type` field that contains the type URIs of a dataset's resources.
+- Add `disitribution_type` to the field list of `select` and `select_dataset` request handlers.
+
 ## 2.2.0 (2021/05)
 
 - Add index for dataschema content.
