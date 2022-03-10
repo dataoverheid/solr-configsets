@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.7.0 (2022/03)
+
+- Copy `publisher` to `facet_authority`.
+
+## 2.6.2 (2022/01)
+
+- Set field type of `user_defined_synonyms` to `EdgeNGram`.
+
+## 2.6.1 (2022/01)
+
+- Use edismax query parser in the `/autocomplete_organization` requestHandler.
+
+## 2.6.0 (2022/01)
+
+- Introduced the `/autocomplete_organization` requestHandler that will provide autocomplete suggestions based on the title and/or synonyms of the organization documents in the index of the `donl_search` configset.
+
 ## 2.5.0 (2021/08)
 
 - Introduce a new field called `popularity`, which can be used for sorting.

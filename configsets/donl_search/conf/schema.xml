@@ -42,8 +42,8 @@
         <filter class="solr.LowerCaseFilterFactory"/>
         <filter class="solr.ManagedStopFilterFactory" managed="dutch"/>
         <filter class="solr.SnowballPorterFilterFactory" language="Dutch"/>
-        <filter class="solr.EdgeNGramFilterFactory" minGramSize="4" maxGramSize="25"/>
         <filter class="solr.ASCIIFoldingFilterFactory"/>
+        <filter class="solr.EdgeNGramFilterFactory" minGramSize="2" maxGramSize="25"/>
       </analyzer>
       <analyzer type="query">
         <tokenizer class="solr.StandardTokenizerFactory"/>
@@ -216,7 +216,7 @@
     <field name="location_uri" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="location_label" type="string" indexed="true" stored="true" multiValued="true"/>
 
-    <field name="user_defined_synonyms" type="text" indexed="true" stored="true"
+    <field name="user_defined_synonyms" type="EdgeNGram" indexed="true" stored="true"
            multiValued="true"/>
 
     <!-- Asset references -->
@@ -328,6 +328,7 @@
 
   <!-- Copy to facet fields -->
   <copyField source="authority" dest="facet_authority"/>
+  <copyField source="publisher" dest="facet_authority"/>
   <copyField source="authority_type" dest="facet_authority_type"/>
   <copyField source="authority_kind" dest="facet_authority_kind"/>
   <copyField source="access_rights" dest="facet_access_rights"/>
