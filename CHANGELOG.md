@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.9.0 (2022/03)
+
+- Introduce a number of new resources that were managed before.
+
+## 2.8.0 (2022/03)
+
+- The following changes are done in the `donl_search` config set:
+    - Renamed field type `EdgeNGram` to `ngram`.
+    - Replace `EdgeNGramFilterFactory` with `NGramFilterFactory` in the renamed `ngram` field type.
+
 ## 2.7.0 (2022/03)
 
 - Copy `publisher` to `facet_authority`.
