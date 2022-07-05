@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.10.0 (2022/05)
+
+- Add `facet_authority_kind` and `facet_theme` facet fields to `select` handler.
+
 ## 2.9.0 (2022/03)
 
 - Introduce a number of new resources that were managed before.

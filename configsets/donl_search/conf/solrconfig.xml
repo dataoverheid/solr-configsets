@@ -107,8 +107,12 @@
       <str name="facet">true</str>
       <str name="facet.mincount">1</str>
       <str name="facet.field">facet_sys_type</str>
-      <str name="facet.field">facet_sys_language</str>
+      <str name="facet.field">facet_authority_kind</str>
+      <str name="facet.field">facet_theme</str>
       <str name="facet.field">facet_community</str>
+      <str name="facet.field">facet_sys_language</str>
+      <str name="f.facet_theme.facet.limit">-1</str>
+      <str name="f.facet_theme.facet.sort">count</str>
 
       <str name="facet.interval">{!key=facet_recent}sys_modified</str>
       <str name="f.facet_sys_type.facet.excludeTerms">catalog</str>
