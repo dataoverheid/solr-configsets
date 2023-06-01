@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.11.0 (2023/05)
+
+- Add boost query `bq` to `select` and `select_dataset` handlers of `donl_search`, so that it boosts results with `authority_kind:https\://data.overheid.nl/organization-type/rijksoverheid`.
+
 ## 2.10.0 (2022/05)
 
 - Add `facet_authority_kind` and `facet_theme` facet fields to `select` handler.

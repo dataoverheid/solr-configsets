@@ -96,6 +96,7 @@
         user_defined_synonyms
       </str>
       <str name="bq">relation_community:[* TO *]^1.1</str>
+      <str name="bq">authority_kind:https\://data.overheid.nl/organization-type/rijksoverheid^1.1</str>
       <str name="defType">edismax</str>
       <str name="fl">sys_id, sys_name, sys_type, sys_uri, sys_created, sys_modified, sys_language,
         title, description, authority, keyword, theme, format, kind, status, phase, asset_logo,
@@ -141,6 +142,7 @@
       </str>
       <str name="bq">classification:[* TO *]^1.1</str>
       <str name="bq">relation_community:[* TO *]^1.1</str>
+      <str name="bq">authority_kind:https\://data.overheid.nl/organization-type/rijksoverheid^1.1</str>
       <str name="defType">edismax</str>
       <str name="fl">title, description, authority, keyword, theme, format, sys_created,
         sys_modified, sys_id, sys_name, sys_type, sys_uri, asset_authority_logo, distribution_type
