@@ -92,7 +92,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="bq">relation_community:[* TO *]^1.1</str>
@@ -139,7 +139,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="bq">classification:[* TO *]^1.1</str>
@@ -199,7 +199,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -255,7 +255,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -293,7 +293,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -331,7 +331,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -378,7 +378,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -422,7 +422,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -459,7 +459,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -497,7 +497,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -534,7 +534,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
