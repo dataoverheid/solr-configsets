@@ -92,10 +92,12 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="bq">relation_community:[* TO *]^1.1</str>
+      <str name="bq">authority_kind:https\://data.overheid.nl/organization-type/rijksoverheid^1.1</str>
+      <str name="bq">authority_kind:donl_bestuurslaag_rijk^1.1</str>
       <str name="bq">sys_type:dataset^1.1</str>
       <str name="defType">edismax</str>
       <str name="fl">sys_id, sys_name, sys_type, sys_uri, sys_created, sys_modified, sys_language,
@@ -137,11 +139,13 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="bq">classification:[* TO *]^1.1</str>
       <str name="bq">relation_community:[* TO *]^1.1</str>
+      <str name="bq">authority_kind:https\://data.overheid.nl/organization-type/rijksoverheid^1.1</str>
+      <str name="bq">authority_kind:donl_bestuurslaag_rijk^1.1</str>
       <str name="defType">edismax</str>
       <str name="fl">title, description, authority, keyword, theme, format, sys_created,
         sys_modified, sys_id, sys_name, sys_type, sys_uri, asset_authority_logo, distribution_type
@@ -195,7 +199,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -251,7 +255,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -289,7 +293,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -327,7 +331,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -374,7 +378,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -418,7 +422,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -455,7 +459,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -493,7 +497,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
@@ -530,7 +534,7 @@
       <str name="q.op">AND</str>
       <str name="echoParams">explicit</str>
       <str name="df">text</str>
-      <str name="qf">text title uri_synonym_nl uri_synonym_en label_nl label_en
+      <str name="qf">text title^1.1 uri_synonym_nl uri_synonym_en label_nl label_en
         user_defined_synonyms
       </str>
       <str name="defType">edismax</str>
