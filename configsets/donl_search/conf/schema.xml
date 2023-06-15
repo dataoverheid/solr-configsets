@@ -405,7 +405,6 @@
   <copyField source="classification" dest="label_en"/>
 
   <!-- Copy to search field -->
-  <copyField source="title" dest="text"/>
   <copyField source="title" dest="title_autocomplete"/>
   <copyField source="description" dest="text"/>
   <copyField source="url" dest="text"/>
