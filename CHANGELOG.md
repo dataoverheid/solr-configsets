@@ -4,6 +4,9 @@
 
 - Add boost query `bq` to `select` and `select_dataset` handlers of `donl_search`, so that it boosts results with `authority_kind:https\://data.overheid.nl/organization-type/rijksoverheid` and `authority_kind:donl_bestuurslaag_rijk`.
 - Add boost query `bq` to `select` handler of `donl_search`, so that it boosts results with `sys_type:dataset`.
+- Do not copy `title` to `text`, since `title` is queried separately anyway.
+- Do not concatenate words that are split by `WordDelimiterGraphFilterFactory`, but keep split tokens only.
+- Lower case query after `WordDelimiterGraphFilterFactory`, so that it matches the index configuration.
 
 ## 2.10.0 (2022/05)
 
